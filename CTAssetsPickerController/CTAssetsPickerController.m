@@ -249,10 +249,13 @@ NSString * const CTAssetsPickerDidDeselectAssetNotification = @"CTAssetsPickerDi
 - (void)setupSplitViewController
 {
     CTAssetCollectionViewController *vc = [CTAssetCollectionViewController new];
+
     UINavigationController *master = [[UINavigationController alloc] initWithRootViewController:vc];
     UINavigationController *detail = [self emptyNavigationController];
     UISplitViewController *svc  = [UISplitViewController new];
     
+    vc.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+
     master.interactivePopGestureRecognizer.enabled  = YES;
     master.interactivePopGestureRecognizer.delegate = nil;
     
